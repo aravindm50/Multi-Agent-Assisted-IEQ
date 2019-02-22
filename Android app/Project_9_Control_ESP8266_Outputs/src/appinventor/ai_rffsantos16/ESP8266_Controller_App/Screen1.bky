@@ -1,0 +1,483 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" id="1" x="-52" y="-320">
+    <mutation component_type="Button" instance_name="led1OnButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">led1OnButton</field>
+    <statement name="DO">
+      <block type="component_method" id="2" inline="false">
+        <mutation component_type="WebViewer" method_name="GoToUrl" is_generic="false" instance_name="ESP8266WebViewer"></mutation>
+        <field name="COMPONENT_SELECTOR">ESP8266WebViewer</field>
+        <value name="ARG0">
+          <block type="text_join" id="3" inline="false">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="component_method" id="4" inline="false">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                <value name="ARG0">
+                  <block type="text" id="5">
+                    <field name="TEXT">esp_ip</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="6">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="7">
+                <field name="TEXT">/ON1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="8" inline="false">
+            <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+            <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+            <value name="ARG0">
+              <block type="text" id="9">
+                <field name="TEXT">led1State</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="10">
+                <field name="TEXT">(state on)</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="11" inline="false">
+                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="led1StateLabel"></mutation>
+                <field name="COMPONENT_SELECTOR">led1StateLabel</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="component_method" id="12" inline="false">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                    <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                    <value name="ARG0">
+                      <block type="text" id="13">
+                        <field name="TEXT">led1State</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="14">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="15" x="785" y="-337">
+    <mutation component_type="Button" instance_name="setIpButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">setIpButton</field>
+    <statement name="DO">
+      <block type="component_set_get" id="16" inline="false">
+        <mutation component_type="HorizontalArrangement" set_or_get="set" property_name="Visible" is_generic="false" instance_name="saveHorizontalArrangement"></mutation>
+        <field name="COMPONENT_SELECTOR">saveHorizontalArrangement</field>
+        <field name="PROP">Visible</field>
+        <value name="VALUE">
+          <block type="logic_boolean" id="17">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="18" inline="false">
+            <mutation component_type="HorizontalArrangement" set_or_get="set" property_name="Visible" is_generic="false" instance_name="setIpHorizontalArrangement"></mutation>
+            <field name="COMPONENT_SELECTOR">setIpHorizontalArrangement</field>
+            <field name="PROP">Visible</field>
+            <value name="VALUE">
+              <block type="logic_boolean" id="19">
+                <field name="BOOL">FALSE</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="20" x="787" y="-233">
+    <mutation component_type="Form" instance_name="Screen1" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="component_set_get" id="21" inline="false">
+        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="ESP8266IpInfoLabel"></mutation>
+        <field name="COMPONENT_SELECTOR">ESP8266IpInfoLabel</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="component_method" id="22" inline="false">
+            <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+            <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+            <value name="ARG0">
+              <block type="text" id="23">
+                <field name="TEXT">esp_ip</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="24">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="25" inline="false">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="led2StateLabel"></mutation>
+            <field name="COMPONENT_SELECTOR">led2StateLabel</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="component_method" id="26" inline="false">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                <value name="ARG0">
+                  <block type="text" id="27">
+                    <field name="TEXT">led2State</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="28">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="29" inline="false">
+                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="led1StateLabel"></mutation>
+                <field name="COMPONENT_SELECTOR">led1StateLabel</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="component_method" id="30" inline="false">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                    <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                    <value name="ARG0">
+                      <block type="text" id="31">
+                        <field name="TEXT">led1State</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="32">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="33" x="-55" y="13">
+    <mutation component_type="Button" instance_name="led1OffButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">led1OffButton</field>
+    <statement name="DO">
+      <block type="component_method" id="34" inline="false">
+        <mutation component_type="WebViewer" method_name="GoToUrl" is_generic="false" instance_name="ESP8266WebViewer"></mutation>
+        <field name="COMPONENT_SELECTOR">ESP8266WebViewer</field>
+        <value name="ARG0">
+          <block type="text_join" id="35" inline="false">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="component_method" id="36" inline="false">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                <value name="ARG0">
+                  <block type="text" id="37">
+                    <field name="TEXT">esp_ip</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="38">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="39">
+                <field name="TEXT">/OFF1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="40" inline="false">
+            <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+            <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+            <value name="ARG0">
+              <block type="text" id="41">
+                <field name="TEXT">led1State</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="42">
+                <field name="TEXT">(state off)</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="43" inline="false">
+                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="led1StateLabel"></mutation>
+                <field name="COMPONENT_SELECTOR">led1StateLabel</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="component_method" id="44" inline="false">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                    <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                    <value name="ARG0">
+                      <block type="text" id="45">
+                        <field name="TEXT">led1State</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="46">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="47" x="792" y="51">
+    <mutation component_type="Button" instance_name="SAVE" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">SAVE</field>
+    <statement name="DO">
+      <block type="component_method" id="48" inline="false">
+        <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+        <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+        <value name="ARG0">
+          <block type="text" id="49">
+            <field name="TEXT">esp_ip</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="text_join" id="50" inline="false">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="text" id="51">
+                <field name="TEXT">http://</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="component_set_get" id="52">
+                <mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="TextBox1"></mutation>
+                <field name="COMPONENT_SELECTOR">TextBox1</field>
+                <field name="PROP">Text</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="53" inline="false">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="ESP8266IpInfoLabel"></mutation>
+            <field name="COMPONENT_SELECTOR">ESP8266IpInfoLabel</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="component_method" id="54" inline="false">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                <value name="ARG0">
+                  <block type="text" id="55">
+                    <field name="TEXT">esp_ip</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="56">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="57" inline="false">
+                <mutation component_type="HorizontalArrangement" set_or_get="set" property_name="Visible" is_generic="false" instance_name="saveHorizontalArrangement"></mutation>
+                <field name="COMPONENT_SELECTOR">saveHorizontalArrangement</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="58">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_set_get" id="59" inline="false">
+                    <mutation component_type="HorizontalArrangement" set_or_get="set" property_name="Visible" is_generic="false" instance_name="setIpHorizontalArrangement"></mutation>
+                    <field name="COMPONENT_SELECTOR">setIpHorizontalArrangement</field>
+                    <field name="PROP">Visible</field>
+                    <value name="VALUE">
+                      <block type="logic_boolean" id="60">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="61" x="-50" y="365">
+    <mutation component_type="Button" instance_name="led2OnButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">led2OnButton</field>
+    <statement name="DO">
+      <block type="component_method" id="62" inline="false">
+        <mutation component_type="WebViewer" method_name="GoToUrl" is_generic="false" instance_name="ESP8266WebViewer"></mutation>
+        <field name="COMPONENT_SELECTOR">ESP8266WebViewer</field>
+        <value name="ARG0">
+          <block type="text_join" id="63" inline="false">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="component_method" id="64" inline="false">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                <value name="ARG0">
+                  <block type="text" id="65">
+                    <field name="TEXT">esp_ip</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="66">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="67">
+                <field name="TEXT">/ON2</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="68" inline="false">
+            <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+            <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+            <value name="ARG0">
+              <block type="text" id="69">
+                <field name="TEXT">led2State</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="70">
+                <field name="TEXT">(state on)</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="71" inline="false">
+                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="led2StateLabel"></mutation>
+                <field name="COMPONENT_SELECTOR">led2StateLabel</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="component_method" id="72" inline="false">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                    <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                    <value name="ARG0">
+                      <block type="text" id="73">
+                        <field name="TEXT">led2State</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="74">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="75" x="765" y="367">
+    <mutation component_type="Button" instance_name="led2OffButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">led2OffButton</field>
+    <statement name="DO">
+      <block type="component_method" id="76" inline="false">
+        <mutation component_type="WebViewer" method_name="GoToUrl" is_generic="false" instance_name="ESP8266WebViewer"></mutation>
+        <field name="COMPONENT_SELECTOR">ESP8266WebViewer</field>
+        <value name="ARG0">
+          <block type="text_join" id="77" inline="false">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="component_method" id="78" inline="false">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                <value name="ARG0">
+                  <block type="text" id="79">
+                    <field name="TEXT">esp_ip</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="80">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="81">
+                <field name="TEXT">/OFF2</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="82" inline="false">
+            <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+            <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+            <value name="ARG0">
+              <block type="text" id="83">
+                <field name="TEXT">led2State</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="84">
+                <field name="TEXT">(state off)</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="85" inline="false">
+                <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="led2StateLabel"></mutation>
+                <field name="COMPONENT_SELECTOR">led2StateLabel</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="component_method" id="86" inline="false">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="ESP8266IpTinyDB"></mutation>
+                    <field name="COMPONENT_SELECTOR">ESP8266IpTinyDB</field>
+                    <value name="ARG0">
+                      <block type="text" id="87">
+                        <field name="TEXT">led2State</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="88">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="159" language-version="20"></yacodeblocks>
+</xml>

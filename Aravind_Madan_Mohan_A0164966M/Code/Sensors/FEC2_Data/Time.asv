@@ -1,0 +1,7 @@
+data = readtable('E11_timestamp.csv');
+x = datetime(data{:,7}, 'InputFormat', 'dd/MM/yyyy HH:mm');
+%y = str2double(strrep(data{:,4}, ',','.'));
+rh = data{:,4};
+plot(x, rh)
+title('Relative Humidity vs Time')
+xlabel('Tie')

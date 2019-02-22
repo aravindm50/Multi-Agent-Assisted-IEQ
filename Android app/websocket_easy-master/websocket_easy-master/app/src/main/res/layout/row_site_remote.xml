@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:descendantFocusability="blocksDescendants">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <ImageView
+        android:id="@+id/iconImg"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/nameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iconImg"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/aboutTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iconImg"
+        android:textSize="12sp"
+        android:layout_below="@id/nameTxt"
+        />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="L"
+        android:id="@+id/btnPlayLocal"
+        android:layout_below="@+id/aboutTxt"
+        android:layout_alignLeft="@+id/aboutTxt"
+        android:layout_alignStart="@+id/aboutTxt" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="R"
+        android:id="@+id/btnPlayRemote"
+        android:layout_alignTop="@+id/btnPlayLocal"
+        android:layout_toRightOf="@+id/btnPlayLocal"
+        android:layout_toEndOf="@+id/btnPlayLocal" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="A"
+        android:id="@+id/btnAddLocal"
+        android:layout_alignTop="@+id/btnPlayRemote"
+        android:layout_toRightOf="@+id/btnPlayRemote"
+        android:layout_toEndOf="@+id/btnPlayRemote" />
+
+</RelativeLayout>

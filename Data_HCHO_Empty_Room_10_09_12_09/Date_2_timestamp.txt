@@ -1,0 +1,20 @@
+import pandas as pd
+import datetime
+import time
+import re
+a = []
+df = pd.read_csv('Aeroqual_HCHO.csv', sep = ',')
+for i in df['Time']:
+    
+    x = re.split(' ',i)
+    y = x[0].split('/')
+    z = x[1].split(':')
+
+    dt = datetime.datetime(int(y[2]), int(y[1]), int(y[0]), int(z[0]), int(z[1]))
+    timee = (time.mktime(dt.timetuple()))
+    a.append(timee)
+    
+csv_input = pd.read_csv('Aeroqual_HCHO.csv')
+csv_input['Timestamp'] = a
+csv_input.to_csv('output.csv', index=False)
+    
